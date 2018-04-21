@@ -1,0 +1,107 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @tender.user.name %>
+</p>
+
+<h1>Company Information</h1>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @tender.company_name %>
+</p>
+
+<p>
+  <strong>Company address:</strong>
+  <%= @tender.company_address %>
+</p>
+
+<p>
+  <strong>Company city:</strong>
+  <%= @tender.company_city %>
+</p>
+
+<p>
+  <strong>Company registration number:</strong>
+  <%= @tender.company_regitration_number %>
+</p>
+
+<p>
+  <strong>Company phone:</strong>
+  <%= @tender.company_phone %>
+</p>
+
+<h1>Tender Information</h1>
+
+<p>
+  <strong>Category:</strong>
+  <%= @tender.category.title %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tender.name %>
+</p>
+
+<p>
+  <strong>Scope of work:</strong>
+  <%= @tender.scope_of_work %>
+</p>
+
+<p>
+  <strong>Project location city:</strong>
+  <%= @tender.project_location_city %>
+</p>
+
+<p>
+  <strong>Project location country:</strong>
+  <%= @tender.project_location_country %>
+</p>
+
+<p>
+  <strong>Bid start date:</strong>
+  <%= @tender.bid_start_date %>
+</p>
+
+<p>
+  <strong>Bid expiry date:</strong>
+  <%= @tender.bid_expiry_date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @tender.description %>
+</p>
+
+<p>
+  <strong>Project start date:</strong>
+  <%= @tender.project_start_date %>
+</p>
+
+<p>
+  <strong>Project completion date:</strong>
+  <%= @tender.project_completion_date %>
+</p>
+
+<h1>Contact Information</h1>
+
+<p>
+  <strong>Contact phone:</strong>
+  <%= @tender.contact_phone %>
+</p>
+
+<p>
+  <strong>Contact fax:</strong>
+  <%= @tender.contact_fax %>
+</p>
+
+<p>
+  <strong>Contact address:</strong>
+  <%= @tender.contact_address %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_tender_path(@tender) %> |
+<%= link_to 'Back', tenders_path %>

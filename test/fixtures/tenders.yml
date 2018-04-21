@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  category: one
+  name: MyString
+  company_name: MyString
+  company_address: MyString
+  company_city: MyString
+  company_regitration_number: MyString
+  company_phone: MyString
+  scope_of_work: MyText
+  project_location_city: MyString
+  project_location_country: MyString
+  bid_start_date: 2018-04-21
+  bid_expiry_date: 2018-04-21
+  contact_phone: MyString
+  phone_fax: MyString
+  contact_address: MyString
+  description: MyString
+  project_start_date: 2018-04-21
+  project_completion_date: 2018-04-21
+
+two:
+  user: two
+  category: two
+  name: MyString
+  company_name: MyString
+  company_address: MyString
+  company_city: MyString
+  company_regitration_number: MyString
+  company_phone: MyString
+  scope_of_work: MyText
+  project_location_city: MyString
+  project_location_country: MyString
+  bid_start_date: 2018-04-21
+  bid_expiry_date: 2018-04-21
+  contact_phone: MyString
+  phone_fax: MyString
+  contact_address: MyString
+  description: MyString
+  project_start_date: 2018-04-21
+  project_completion_date: 2018-04-21

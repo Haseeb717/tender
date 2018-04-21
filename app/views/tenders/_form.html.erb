@@ -1,0 +1,107 @@
+<%= form_with(model: tender, local: true) do |form| %>
+  
+  <div class="field">
+    <%= form.hidden_field :user_id, :value=>current_user.id %>
+  </div>
+
+  <h2>Company Information</h2>
+
+  <div class="field">
+    <%= form.label :company_name %>
+    <%= form.text_field :company_name, id: :tender_company_name %>
+  </div>
+
+  <div class="field">
+    <label>Company Registration Number</label>
+    <%= form.text_field :company_regitration_number, id: :tender_company_regitration_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company_phone %>
+    <%= form.text_field :company_phone, id: :tender_company_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company_address %>
+    <%= form.text_field :company_address, id: :tender_company_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company_city %>
+    <%= form.text_field :company_city, id: :tender_company_city %>
+  </div>
+
+  <h2>Tender Information</h2>
+
+  <div class="field">
+    <label>Tender Name</label>
+    <%= form.text_field :name, id: :tender_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category_id %>
+    <%= form.select(:category_id,options_for_select(Category.pluck(:title, :id)), {}, {:required => true, :class => 'form-control',:id=>"carrier_list" }) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :scope_of_work %>
+    <%= form.text_area :scope_of_work, id: :tender_scope_of_work %>
+  </div>
+
+  <div class="field">
+    <%= form.label :project_location_city %>
+    <%= form.text_field :project_location_city, id: :tender_project_location_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :project_location_country %>
+    <%= form.select(:project_location_country, CS.get.values,{:prompt => 'Your Country'}) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bid_start_date %>
+    <%= form.date_select :bid_start_date, id: :tender_bid_start_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bid_expiry_date %>
+    <%= form.date_select :bid_expiry_date, id: :tender_bid_expiry_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :project_start_date %>
+    <%= form.date_select :project_start_date, id: :tender_project_start_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :project_completion_date %>
+    <%= form.date_select :project_completion_date, id: :tender_project_completion_date %>
+  </div>
+
+  <div class="field">
+    <label>Description</label>
+    <%= form.date_select :description %>
+  </div>
+  
+  <h2>Contact Information</h2>
+
+  <div class="field">
+    <%= form.label :contact_phone %>
+    <%= form.text_field :contact_phone, id: :tender_contact_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contact_fax %>
+    <%= form.text_field :contact_fax %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contact_address %>
+    <%= form.text_field :contact_address, id: :tender_contact_address %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

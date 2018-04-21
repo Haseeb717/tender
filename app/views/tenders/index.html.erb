@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tenders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Category</th>
+      <th>Name</th>
+      <th>Company name</th>
+      <th>Company address</th>
+      <th>Company city</th>
+      <th>Company regitration number</th>
+      <th>Company phone</th>
+      <th>Scope of work</th>
+      <th>Project location city</th>
+      <th>Project location country</th>
+      <th>Bid start date</th>
+      <th>Bid expiry date</th>
+      <th>Contact phone</th>
+      <th>Phone fax</th>
+      <th>Contact address</th>
+      <th>Description</th>
+      <th>Project start date</th>
+      <th>Project completion date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tenders.each do |tender| %>
+      <tr>
+        <td><%= tender.user %></td>
+        <td><%= tender.category %></td>
+        <td><%= tender.name %></td>
+        <td><%= tender.company_name %></td>
+        <td><%= tender.company_address %></td>
+        <td><%= tender.company_city %></td>
+        <td><%= tender.company_regitration_number %></td>
+        <td><%= tender.company_phone %></td>
+        <td><%= tender.scope_of_work %></td>
+        <td><%= tender.project_location_city %></td>
+        <td><%= tender.project_location_country %></td>
+        <td><%= tender.bid_start_date %></td>
+        <td><%= tender.bid_expiry_date %></td>
+        <td><%= tender.contact_phone %></td>
+        <td><%= tender.phone_fax %></td>
+        <td><%= tender.contact_address %></td>
+        <td><%= tender.description %></td>
+        <td><%= tender.project_start_date %></td>
+        <td><%= tender.project_completion_date %></td>
+        <td><%= link_to 'Show', tender %></td>
+        <td><%= link_to 'Edit', edit_tender_path(tender) %></td>
+        <td><%= link_to 'Destroy', tender, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tender', new_tender_path %>
