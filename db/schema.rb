@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180421090744) do
+ActiveRecord::Schema.define(version: 20180424210858) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
@@ -22,11 +25,6 @@ ActiveRecord::Schema.define(version: 20180421090744) do
     t.integer "user_id"
     t.integer "category_id"
     t.string "name"
-    t.string "company_name"
-    t.string "company_address"
-    t.string "company_city"
-    t.string "company_regitration_number"
-    t.string "company_phone"
     t.text "scope_of_work"
     t.string "project_location_city"
     t.string "project_location_country"
@@ -40,6 +38,7 @@ ActiveRecord::Schema.define(version: 20180421090744) do
     t.date "project_completion_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "verification_id"
     t.index ["category_id"], name: "index_tenders_on_category_id"
     t.index ["user_id"], name: "index_tenders_on_user_id"
   end
@@ -61,6 +60,11 @@ ActiveRecord::Schema.define(version: 20180421090744) do
     t.datetime "confirmation_sent_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "company_name"
+    t.string "company_city"
+    t.string "company_address"
+    t.string "company_regitration_number"
+    t.string "company_phone"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

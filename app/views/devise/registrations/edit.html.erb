@@ -14,6 +14,33 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
+  <h2>Company Information</h2>
+
+  <div class="field">
+    <%= f.label :company_name %>
+    <%= f.text_field :company_name, id: :tender_company_name %>
+  </div>
+
+  <div class="field">
+    <label>Company Registration Number</label>
+    <%= f.text_field :company_regitration_number, id: :tender_company_regitration_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_phone %>
+    <%= f.text_field :company_phone, id: :tender_company_phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_address %>
+    <%= f.text_field :company_address, id: :tender_company_address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_city %>
+    <%= f.text_field :company_city, id: :tender_company_city %>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
