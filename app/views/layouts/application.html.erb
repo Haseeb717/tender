@@ -26,11 +26,13 @@
                  <i class="fa fa-user insider"></i> Live Tenders
                  <% end %>
               </li>
-              <li>
-                 <%= link_to edit_user_registration_path do %>
-                 <i class="fa fa-user insider"></i> My Account
-                 <% end %>
-              </li>
+              <%= if user_signed_in? %>
+                <li>
+                   <%= link_to edit_user_registration_path do %>
+                   <i class="fa fa-user insider"></i> My Account
+                   <% end %>
+                </li>
+              <% end %>
            </ul>
         </nav>
         <!-- Calender Starts Here-->
