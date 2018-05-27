@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tender: one
+  user: one
+  bid: one
+  status: 1
+
+two:
+  tender: two
+  user: two
+  bid: two
+  status: 1

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tender: one
+  user: one
+  price: MyString
+  time_estimate: MyString
+  mobile_no: MyString
+
+two:
+  tender: two
+  user: two
+  price: MyString
+  time_estimate: MyString
+  mobile_no: MyString

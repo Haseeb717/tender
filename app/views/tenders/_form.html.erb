@@ -1,86 +1,142 @@
-<%= form_with(model: tender, local: true) do |form| %>
-  
-  <div class="field">
-    <%= form.hidden_field :user_id, :value=>current_user.id %>
-  </div>
-
-  <h2>Tender Information</h2>
-
-  <div class="field">
-    <label>Tender Name</label>
-    <%= form.text_field :name, id: :tender_name %>
-  </div>
-
-  <div class="field">
-    <label>Job Id</label>
-    <%= form.text_field :verification_id %>
-  </div>
 
 
-  <div class="field">
-    <%= form.label :category_id %>
-    <%= form.select(:category_id,options_for_select(Category.pluck(:title, :id)), {}, {:required => true, :class => 'form-control',:id=>"carrier_list" }) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :scope_of_work %>
-    <%= form.text_area :scope_of_work, id: :tender_scope_of_work %>
-  </div>
-
-  <div class="field">
-    <%= form.label :project_location_city %>
-    <%= form.text_field :project_location_city, id: :tender_project_location_city %>
-  </div>
-
-  <div class="field">
-    <%= form.label :project_location_country %>
-    <%= form.select(:project_location_country, CS.get.values,{:prompt => 'Your Country'}) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :bid_start_date %>
-    <%= form.date_select :bid_start_date, id: :tender_bid_start_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :bid_expiry_date %>
-    <%= form.date_select :bid_expiry_date, id: :tender_bid_expiry_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :project_start_date %>
-    <%= form.date_select :project_start_date, id: :tender_project_start_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :project_completion_date %>
-    <%= form.date_select :project_completion_date, id: :tender_project_completion_date %>
-  </div>
-
-  <div class="field">
-    <label>Description</label>
-    <%= form.date_select :description %>
-  </div>
-  
-  <h2>Contact Information</h2>
-
-  <div class="field">
-    <%= form.label :contact_phone %>
-    <%= form.text_field :contact_phone, id: :tender_contact_phone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :contact_fax %>
-    <%= form.text_field :contact_fax %>
-  </div>
-
-  <div class="field">
-    <%= form.label :contact_address %>
-    <%= form.text_field :contact_address, id: :tender_contact_address %>
-  </div>
-
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<!-- Sidebar end here-->
+         <div id="page-content-wrapper">
+            <div class="content-header">
+               <h1 id="home">
+                  <a id="menu-toggle" href="#" class="glyphicon glyphicon-align-justify btn-menu toggle">
+                  <i class="fa fa-bars"></i>
+                  </a>
+                  Dashboard
+               </h1>
+               <div class="user-area pull-right">
+                  <ul class="top-menu">
+                     <li><a href="">Darren@solarfarm.co.uk</a></li>
+                     <li><a href="">Contact Support</a></li>
+                     <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+                  </ul>
+               </div>
+            </div>
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="container-fluid">
+                     <%= render "/layouts/alerts" %>
+                  </div>
+               </div>
+               
+               <!-- row -->
+               <div class="row mt20">
+                  <div class="col-sm-8 form-detail">
+                      <%= form_with(model: tender, local: true) do |form| %>
+                        <%= form.hidden_field :user_id, :value=>current_user.id %>
+                        <!-- Form start -->
+                        <div class="form-group">
+                          
+                           <label class="control-label" for="name">New Job:</label>
+                           <%= form.text_field :title, :placeholder=>"Scunthrope Council c",:class=>"form-control input-md" %>
+                          
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-6">
+                              <div class="form-group">
+                                 <label class="control-label" for="name">Location:</label>
+                                 <%= form.text_field :location, :placeholder=>"YO30 6AB",:class=>"form-control input-md" %>
+                              </div>
+                           </div>
+                           <!-- Text input-->
+                           <div class="col-sm-6">
+                              <div class="form-group">
+                                 <label class="control-label" for="email">Install Date:</label>
+                                 <%= form.date_field :install_date, :class=>"form-control input-md",:id=>"date" %>
+                              </div>
+                           </div>
+                           <!-- Text input-->
+                        </div>
+                        <!-- row -->
+                        <div class="row">
+                           <div class="col-sm-6">
+                              <div class="form-group">
+                                 <label class="control-label" for="name">Job Type:</label>
+                                 <%= form.select(:category_id,options_for_select(Category.pluck(:title, :id)), {}, {:required => true, :class => 'form-control input-md' }) %>
+                              </div>
+                           </div>
+                           <!-- Text input-->
+                           <div class="col-sm-6">
+                              <div class="form-group">
+                                 <label class="control-label" for="name">Qualification Required:</label>
+                                 <select name="name" class="form-control input-md">
+                                    <option>NICEIC</option>
+                                 </select>
+                              </div>
+                           </div>
+                           <!-- Text input-->
+                        </div>
+                        <!-- row -->
+                        <div class="form-group">
+                           <label class="control-label" for="name">Details:</label>
+                           <%= form.text_field :description, :placeholder=>"8.0 KW, Fill system plus Battery storage system",:class=>"form-control input-md" %>
+                        </div>
+                        <div class="row">
+                           <p class="ml20">Labour Required:</p>
+                           <div class="col-sm-6">
+                              <div class="row">
+                                 <div class="col-sm-3">
+                                    <div class="form-group">
+                                       <div class="radio">
+                                        <label>Electrician</label>
+                                        <%= form.check_box :electrican %> 
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-9">
+                                    <div class="form-group">
+                                       <%= form.select(:no_of_electricans,options_for_select([1,2,3,4,5]), {}, {:required => true, :class => 'form-control input-md' }) %>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-sm-6">
+                              <div class="row">
+                                 <div class="col-sm-3">
+                                    <div class="form-group">
+                                       <div class="radio">
+                                          <label>Roofer</label>
+                                          <%= form.check_box :roofer %> 
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-9">
+                                    <div class="form-group">
+                                      <%= form.select(:no_of_roofers,options_for_select([1,2,3,4,5]), {}, {:required => true, :class => 'form-control input-md' }) %>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-8">
+                              <div class="row">
+                                 <p class="ml20">Tendering Deadline:</p>
+                                 <div class="col-sm-12">
+                                    <div class="form-group">
+                                      <%= form.datetime_select :tendering_end_date,:class=>"form-control input-md" %>
+                                    </div>
+                                 </div>
+                                 
+                              </div>
+                           </div>
+                        </div>
+                        <br />
+                        <p>
+                          <%= form.submit "Submit",:class=>"btn btn-success" %>
+                          <button id="button2id" name="button2id" class="btn btn-default">Cancel</button>
+                        </p>
+                     <% end %>
+                  </div>
+                  <!-- col-8 -->
+                  <div class="col-sm-4">
+                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d75119.6614802936!2d-1.150631045822266!3d53.95857613367349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4878c340e19865f1%3A0x4774ab898a54e4d1!2sYork%2C+UK!5e0!3m2!1sen!2s!4v1526288323252" width="100%" height="550" frameborder="0" style="border:0" allowfullscreen></iframe>
+                  </div>
+               </div>
+            </div>
+         </div>

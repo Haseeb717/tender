@@ -25,10 +25,10 @@ class TendersController < ApplicationController
   # POST /tenders.json
   def create
     @tender = Tender.new(tender_params)
-
+    byebug
     respond_to do |format|
       if @tender.save
-        format.html { redirect_to @tender, notice: 'Tender was successfully created.' }
+        format.html { redirect_to root_url, notice: 'Tender was successfully created.' }
         format.json { render :show, status: :created, location: @tender }
       else
         format.html { render :new }
@@ -69,6 +69,6 @@ class TendersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tender_params
-      params.require(:tender).permit(:user_id, :category_id, :name, :company_name, :company_address, :company_city, :company_regitration_number, :company_phone, :scope_of_work, :project_location_city, :project_location_country, :bid_start_date, :bid_expiry_date, :contact_phone, :contact_fax, :contact_address, :description, :project_start_date, :project_completion_date,:verification_id)
+      params.require(:tender).permit(:user_id, :category_id, :title, :install_date, :tendering_end_date, :description, :electrican, :no_of_electricans, :roofer, :no_of_roofers)
     end
 end
